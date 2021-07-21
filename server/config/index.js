@@ -17,12 +17,23 @@ const favicon = require("serve-favicon");
 // https://www.npmjs.com/package/path
 const path = require("path");
 
+// CORS require
+const cors = require('cors')
 //
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
 // Middleware configuration
 module.exports = (app) => {
+
+    app.use(
+      cors({
+        credentials: true,
+        origin: ["http://localhost:3000"]
+      })
+    )
+
+
   // In development environment the app logs
   app.use(logger("dev"));
 

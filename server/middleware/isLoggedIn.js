@@ -2,7 +2,7 @@ function isLoggedIn(req, res, next) {
 	if (req.session.currentUser) {
 		next();
 	} else {
-		res.redirect('/auth/login');
+		res.json({message: "You are logged in!"});
 	}
 }
 
